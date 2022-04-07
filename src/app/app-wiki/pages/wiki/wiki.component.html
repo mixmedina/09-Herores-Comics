@@ -1,0 +1,12 @@
+<div class="container">
+    <header>
+      <h4 class="title">Wiki Búsqueda del Curso de Angular - Mauricio Medina Larenas</h4>
+      <p class="sub-title">
+        Se consume API de Wikipedia para la búsqueda...
+      </p>
+    </header>
+    <app-search (submitted)="onSearch($event)"></app-search>
+    <ng-container *ngFor="let article of articles$ | async">
+      <app-article [article]="article"></app-article>
+    </ng-container>
+  </div>

@@ -1,0 +1,29 @@
+<div class="fadeIn fast">
+<h1>Seleccione el país por el idioma</h1>
+<hr>
+  <button (click)="buscarPaises('es')" class="btn btn-outline-primary" type="button">Lenguaje Español</button> &nbsp;
+  <button (click)="buscarPaises('en')" class="btn btn-outline-success" type="button">Lenguaje Inglés</button>
+<div *ngFor="let pais of paises" class="animated fadeIn fast">
+
+<hr>
+<h1 class="animated fadeIn"><b>País: </b>{{ pais.name }}</h1> <h4><b>Capital:</b> {{ pais.capital }}</h4>
+
+<div class="row animated fadeIn fast">
+
+  <div class="col-md-4">
+    <img src="{{ pais.flag }}"  height="150" width="250" alt="...">
+  </div>
+
+  <div class="col-md-8">
+    <p class="card-text"><b>Región:</b> {{ pais.region }}</p>
+    <p class="card-text"><b>Sub-Región:</b> {{ pais.subregion }}</p>
+
+    <p class="card-text"><b>Cantidad de Personas:</b> {{ pais.population | number }}</p>
+    <p class="card-text"><b>Denominación: </b> {{ pais.demonym }}</p> 
+  </div>
+
+</div>
+<br>
+
+</div>
+</div>

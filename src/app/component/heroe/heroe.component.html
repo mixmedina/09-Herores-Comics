@@ -1,0 +1,52 @@
+
+<h1 class="animated fadeIn">{{ heroe.nombre | uppercase }} <small>({{ heroe.aparicion | date:'y' }})</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast">
+
+  <div class="col-md-4">
+
+    <img [src]="heroe.img" width="250" height="250" class="img-fluid" [alt]="heroe.nombre">
+    <br><br>
+    <a [routerLink]="['/heroes']" class="btn btn-success">Regresar</a>
+
+  </div>
+
+  <div class="col-md-8">
+    <h3>Héroe: {{ heroe.nombre }}</h3>
+    <hr>
+    <p>
+      Resumen Biografía: {{ heroe.bio}}
+    </p>
+    <p>
+      Valor Comics: {{ heroe.valor | currency: idioma}}
+    </p>
+    <div>
+      <img *ngIf="heroe.casa == 'Marvel'" class="img-logo" src="assets/img/marvel-logo.png" alt="DC">
+      <img *ngIf="heroe.casa == 'DC'" class="img-logo" src="assets/img/dc-logo.jpg" alt="Marvel">
+    </div>
+
+    <div>
+      <p><b>Presione botón para ver valor en moneda diferente</b></p>
+        <button (click)="idioma='EUR'" class="mr-1 btn btn-primary">EURO</button> &nbsp;
+        <button (click)="idioma='USD'" class="mr-1 btn btn-secondary">Dólar</button> &nbsp;
+        <button (click)="idioma='CLP'" class="mr-1 btn btn-success">Peso Chileno</button>
+    </div>
+    <hr>
+    <div class="row mb-5">
+      <div class="col">
+    
+        <iframe width="560" 
+                height="315" 
+                [src]="heroe.videoUrl | domseguro" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    
+    
+      </div>
+    </div>
+  </div>
+
+</div>
